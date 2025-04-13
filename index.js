@@ -49,6 +49,19 @@ function deploy(Emails) {
 let root = document.getElementById("root");
 let P = getPackage();
 root.innerHTML = deploy(P);
+
+let area = document.querySelector("#area");
+document.querySelector("#collect").addEventListener("click", function () {
+  let pattern = /[a-zA-Z0-9]{6,}@gmail.com/;
+  let arr = area.value.split("\n");
+  let emails = arr.filter((e) => pattern.test(e));
+  let content = "";
+  for (let i = 0; i < emails.length; i++) {
+    content += emails[i] + "\n";
+  }
+  area.value = content;
+});
+
 // import { Email } from "./node_modules/email/index.js";
 // const verifier = new EmailVerifier("YOUR_API_KEY");
 

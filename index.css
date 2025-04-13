@@ -1,6 +1,14 @@
-#body{
-    display
-}
+
 #area {
-  width: 90%;
+  width: 100%;
+  height:259px ;
+  padding: 10px;
+}
+button{
+  width: 40%;
+
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
 }
