@@ -1,26 +1,27 @@
 
 #area {
   width: 80%;
-  height:259px ;
+  height: 259px;
   padding: 10px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
-button{
+button {
   width: 40%;
   border: none;
   padding: 10px 15px;
 }
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-between;
   margin: 30px 0;
 }
-#parse2{
-  width: calc(100% - 20px );
+#parse2 {
+  width: calc(100% - 20px);
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px 15px;
+  margin: 0 0 30px;
 }
