@@ -84,9 +84,7 @@ document.getElementById("parse2").addEventListener("click", function () {
   let content = "";
 
   for (let i = 1; i < emails.length + 1; i++) {
-    content += `${i}_ ${emails[i - 1]}\n${
-      emails[i - 1][0] + emails[i - 1][1]
-    }1234${emails[i - 1][0] + emails[i - 1][1]}\n\n`;
+    content += `${i}_ ${emails[i - 1]}\n`;
   }
   area.value = content;
 });
