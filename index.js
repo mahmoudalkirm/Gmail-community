@@ -49,15 +49,44 @@ function deploy(Emails) {
 let root = document.getElementById("root");
 let P = getPackage();
 root.innerHTML = deploy(P);
+let pattern = /[a-zA-Z0-9^\s]{6,}@gmail.com/;
 
 let area = document.querySelector("#area");
-document.querySelector("#collect").addEventListener("click", function () {
-  let pattern = /[a-zA-Z0-9]{6,}@gmail.com/;
+function collectEmails() {
+  let emails;
   let arr = area.value.split("\n");
-  let emails = arr.filter((e) => pattern.test(e));
+  emails = arr.filter((e) => pattern.test(e));
+  return emails;
+}
+
+document.querySelector("#collect").addEventListener("click", function () {
+  let emails = collectEmails();
   let content = "";
-  for (let i = 0; i < emails.length; i++) {
-    content += emails[i] + "\n";
+  for (let i = 1; i < emails.length + 1; i++) {
+    content += `${emails[i - 1]}\n`;
+  }
+
+  area.value = content;
+});
+document.getElementById("parse").addEventListener("click", function () {
+  let emails = collectEmails();
+  let content = "";
+
+  for (let i = 1; i < emails.length + 1; i++) {
+    content += `${emails[i - 1]}\n${emails[i - 1][0] + emails[i - 1][1]}1234${
+      emails[i - 1][0] + emails[i - 1][1]
+    }\n\n`;
+  }
+  area.value = content;
+});
+document.getElementById("parse2").addEventListener("click", function () {
+  let emails = collectEmails();
+  let content = "";
+
+  for (let i = 1; i < emails.length + 1; i++) {
+    content += `${i}_ ${emails[i - 1]}\n${
+      emails[i - 1][0] + emails[i - 1][1]
+    }1234${emails[i - 1][0] + emails[i - 1][1]}\n\n`;
   }
   area.value = content;
 });
